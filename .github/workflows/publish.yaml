@@ -15,24 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v2
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+#      - name: Install dependencies
+#        run: yarn install --frozen-lockfile
 
       - name: Publish to npm
 #        run: yarn publish --registry https://registry.npmjs.org/
         run: echo "NPM_TOKEN is set!"
-        if: env.NPM_TOKEN != ''
+        if: env.NODE_AUTH_TOKEN != ''
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - uses: sarisia/actions-status-discord@v1
-        if: always()
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        with:
-          nodetail: true
-          title: "@zoop.studio/react-native-numberpad"
-          color: 0xff91a4
