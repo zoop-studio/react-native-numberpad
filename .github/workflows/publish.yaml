@@ -27,8 +27,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Notify Discord
-        uses: DiscordHooks/github-actions-discord-webhook@v2.1.0
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        uses: Ilshidur/action-discord@master
         with:
-          webhook-url: ${{secrets.DISCORD_WEBHOOK_URL}}
-          content: "Package has been successfully published!"
+          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
