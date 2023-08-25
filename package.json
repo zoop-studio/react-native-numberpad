@@ -34,7 +34,7 @@
   "size-limit": [
     {
       "path": "dist",
-      "limit": "200 KB"
+      "limit": "2 KB"
     }
   ]
 }
