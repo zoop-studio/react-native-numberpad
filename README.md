@@ -5,7 +5,7 @@
 Have you been struggling to implement a `number-pad` for use in React-native, or just want to use the logic without the
 UI? If so, install it now! 👊
 
-It's lightweight at just **168 KB** and will save you some precious time.
+It's lightweight at just under **2 KB** and will save you some precious time.
 
 You don't need any additional dependency libraries, just the ones installed in your project.
 
