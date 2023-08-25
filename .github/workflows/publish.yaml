@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v2
+#
+#      - name: Install dependencies
+#        run: yarn install --frozen-lockfile
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Publish to npm
-#        run: yarn publish --registry https://registry.npmjs.org/
-        run: echo "NPM_TOKEN is set!"
-        if: env.NODE_AUTH_TOKEN != ''
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+#      - name: Publish to npm
+##        run: yarn publish --registry https://registry.npmjs.org/
+#        run: echo "NPM_TOKEN is set!"
+#        if: env.NODE_AUTH_TOKEN != ''
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
 #      - name: Github Contexts Test
 #        run: |
@@ -33,10 +33,12 @@ jobs:
 #          echo "REPOSITORY: ${{ github.repository }}"
 
       - uses: sarisia/actions-status-discord@v1
+        if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          nodetail: true
+          username: Github Actions
+          status: ${{ job.status }}
           title: New version of `${{ github.repository }}` is ready!
-          description: |
-            Version `${{ github.ref_name }}`
-            Click [`${{ github.ref_name }}`](https://github.com/`${{ github.repository }}`/tree/${{ github.ref_name }}) to download!
+          url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          description: Release `${{ github.ref_name }}`
+          color: 0x006afe
