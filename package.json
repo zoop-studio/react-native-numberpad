@@ -33,7 +33,7 @@
   },
   "size-limit": [
     {
-      "path": "dist",
+      "path": "dist/NumberPadProvider.js",
       "limit": "2 KB"
     }
   ]
