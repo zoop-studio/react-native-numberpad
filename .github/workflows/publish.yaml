@@ -38,6 +38,6 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           username: Github Actions
           status: ${{ job.status }}
-          title: `${{ github.ref_name }}`
+          title: ${{ github.ref_name }}
           url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           color: 0x006afe
