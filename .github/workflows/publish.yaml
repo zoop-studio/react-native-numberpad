@@ -33,11 +33,11 @@ jobs:
         run: echo "::set-output name=version::${GITHUB_REF#refs/tags/}"
         if: startsWith(github.ref, 'refs/tags/')
 
-      - uses: sarisia/actions-status-discord@v1
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          nodetail: true
-          title: New version of `@zoop.studio/react-native-numberpad` is ready!
-          description: |
-            Version `${{ steps.get_version.outputs.version }}`
-            Click [${{ steps.get_version.outputs.version }}](https://github.com/zoop-studio/react-native-numberpad/tree/${{ steps.get_version.outputs.version }}) to download!
+#      - uses: sarisia/actions-status-discord@v1
+#        with:
+#          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+#          nodetail: true
+#          title: New version of `@zoop.studio/react-native-numberpad` is ready!
+#          description: |
+#            Version `${{ steps.get_version.outputs.version }}`
+#            Click [${{ steps.get_version.outputs.version }}](https://github.com/zoop-studio/react-native-numberpad/tree/${{ steps.get_version.outputs.version }}) to download!
