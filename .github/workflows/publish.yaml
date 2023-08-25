@@ -35,6 +35,9 @@ jobs:
         env:
           GITHUB_REF: ${{ github.ref }}
 
+      - name: Check TAG_NAME
+        run: echo ${{ steps.get_version.outputs.version }}
+
 #      - uses: sarisia/actions-status-discord@v1
 #        with:
 #          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
