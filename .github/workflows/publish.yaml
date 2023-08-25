@@ -23,13 +23,16 @@ jobs:
 
       - name: Publish to npm
 #        run: yarn publish --registry https://registry.npmjs.org/
-        run: echo This step works $NPM_TOKEN
+        run: echo "NPM_TOKEN is set!"
+        if: env.NPM_TOKEN != ''
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Discord notification
+      - uses: sarisia/actions-status-discord@v1
+        if: always()
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        uses: Ilshidur/action-discord@master
         with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+          nodetail: true
+          title: "@zoop.studio/react-native-numberpad"
+          color: 0xff91a4
