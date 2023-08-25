@@ -14,6 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Add label
+        run: |
+          gh pr update ${{ github.event.pull_request.number }} --add-label release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
 
