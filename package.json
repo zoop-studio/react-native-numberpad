@@ -33,7 +33,8 @@
   },
   "size-limit": [
     {
-      "path": "dist"
+      "path": "dist",
+      "limit": "200 KB"
     }
   ]
 }
