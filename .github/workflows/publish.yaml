@@ -1,0 +1,34 @@
+name: Publish and Notify
+
+on:
+  push:
+    tags:
+      - '*'
+    branches:
+      - feature/github-actions
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Publish to npm
+#        run: yarn publish --registry https://registry.npmjs.org/
+        run: echo This step works $NPM_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Notify Discord
+        uses: DiscordHooks/github-actions-discord-webhook@v2.1.0
+        with:
+          webhook-url: ${{secrets.DISCORD_WEBHOOK_URL}}
+          content: "Package has been successfully published!"
