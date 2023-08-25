@@ -38,7 +38,6 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
           username: Github Actions
           status: ${{ job.status }}
-          title: New version of `${{ github.repository }}` is ready!
+          title: `${{ github.ref_name }}`
           url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          description: Release `${{ github.ref_name }}`
           color: 0x006afe
