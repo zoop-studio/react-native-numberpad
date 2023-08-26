@@ -14,16 +14,21 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@zoop.studio'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
       - name: Publish to npm
-        run: yarn publish --registry https://registry.npmjs.org/
+        run: yarn publish
         if: env.NODE_AUTH_TOKEN != ''
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
