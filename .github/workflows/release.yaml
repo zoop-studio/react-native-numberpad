@@ -2,16 +2,13 @@ name: Release
 
 on:
   push:
-    branches:
-      - 'main'
     tags:
-      - '*'
+      - 'v*'
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     if: ${{ github.ref }} == 'refs/heads/main'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,16 +16,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: 16
           registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@zoop.studio'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Publish to npm
-        run: yarn publish
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: yarn publish
         if: env.NODE_AUTH_TOKEN != ''
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
