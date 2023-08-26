@@ -61,7 +61,7 @@ const Example = () => {
 This library is used in real-world products, and your contributions can help us make great updates to products uploaded
 to the App Store and Play Store.
 
-Download [ZOOP](https://apps.apple.com/kr/app/zoop-%ED%95%B4%EC%99%B8%EC%97%AC%ED%96%89-%EA%B0%80%EA%B3%84%EB%B6%80/id6447391288),
+Download [Apple App Store](https://apps.apple.com/kr/app/zoop-%ED%95%B4%EC%99%B8%EC%97%AC%ED%96%89-%EA%B0%80%EA%B3%84%EB%B6%80/id6447391288) or [Google Play Store](https://play.google.com/store/apps/details?id=com.zoop.app),
 a budgeting app for international travelers, today.
 
 ## License
