@@ -1,9 +1,11 @@
-name: Pull Request for release
+name: Pull Request for Release
 
 on:
   pull_request:
     branches:
       - 'main'
+    types:
+      - opened
 
 jobs:
   label:
