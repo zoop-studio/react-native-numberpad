@@ -1,13 +1,16 @@
-name: Pull Request for release
+name: Pull Request for Release
 
 on:
   pull_request:
     branches:
       - 'main'
+    types:
+      - opened
 
 jobs:
   label:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref_name, 'release/')
     permissions:
       contents: read
       pull-requests: write
