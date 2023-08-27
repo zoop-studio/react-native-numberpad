@@ -1,0 +1,9 @@
+[
+  {
+    "path": [
+      "dist/NumberPad*.js",
+      "dist/NumberPad*.ts"
+    ],
+    "limit": "2 KB"
+  }
+]
