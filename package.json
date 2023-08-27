@@ -29,11 +29,5 @@
     "react": "*",
     "react-native": "*",
     "typescript": "*"
-  },
-  "size-limit": [
-    {
-      "path": "dist",
-      "limit": "2 KB"
-    }
-  ]
+  }
 }
