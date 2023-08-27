@@ -1,7 +1,6 @@
 # react-native-numberpad
 
 [![npm version](https://badge.fury.io/js/@zoop.studio%2Freact-native-numberpad.svg)](https://badge.fury.io/js/@zoop.studio%2Freact-native-numberpad)
-[![Release](https://github.com/zoop-studio/react-native-numberpad/actions/workflows/release.yaml/badge.svg)](https://github.com/zoop-studio/react-native-numberpad/actions/workflows/release.yaml)
 
 Have you been struggling to implement a `number-pad` for use in React-native, or just want to use the logic without the
 UI? If so, install it now! 👊
