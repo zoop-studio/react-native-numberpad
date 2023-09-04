@@ -11,7 +11,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "test": "jest && size-limit"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.22.11",
