@@ -56,26 +56,29 @@ export const NumberPadProvider = ({
   const handleAppend: NumberPadActionContextType['onAppend'] = (
     stack: string,
   ) => {
-    const prevValue = stacks.join('');
-
-    if (prevValue.length >= maxLength) {
+    if (stacks.length >= maxLength) {
       return;
     }
 
     switch (stack) {
       case '.':
-        if (prevValue === '') {
+        if (stacks.length === 0) {
           setStacks(['0', stack]);
           break;
         }
-        if (prevValue.includes('.')) {
+        if (!stacks.includes('.')) {
+          setStacks([...stacks, stack]);
           break;
         }
+        // Skip this append
+        break;
       case '0':
-        if (prevValue === '') {
+        if (stacks.length === 0) {
           setStacks([stack, '.']);
           break;
         }
+        setStacks([...stacks, stack]);
+        break;
       default:
         setStacks([...stacks, stack]);
         break;
