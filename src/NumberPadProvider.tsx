@@ -86,14 +86,13 @@ export const NumberPadProvider = ({
   }, []);
   const handleDelete: NumberPadActionContextType['onDelete'] =
     useCallback(() => {
-      const prevValue = stacks.join('');
-
-      if (prevValue === '0.') {
+      if (stacks.length === 2 && stacks[0] === '0' && stacks[1] === '.') {
         handleClear();
         return;
       }
-
-      setStacks(stacks.slice(0, stacks.length - 1));
+      const newStacks = [...stacks];
+      newStacks.pop();
+      setStacks(newStacks);
     }, [handleClear, stacks]);
   const handleGetValue: NumberPadActionContextType['getValue'] = () => {
     return value;
