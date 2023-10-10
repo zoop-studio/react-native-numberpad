@@ -1,6 +1,6 @@
 {
   "name": "@zoop.studio/react-native-numberpad",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "A number pad hooks and components for React-native",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
